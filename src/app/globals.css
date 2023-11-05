@@ -47,7 +47,7 @@
 
 @layer utilities {
   .container-wide {
-    @apply w-full max-w-[1110px] mx-auto max-[1158px]:px-[16px];
+    @apply w-full max-w-[1400px] mx-auto max-[1358px]:px-[16px];
   }
   .container-large {
     @apply w-full max-w-[850px] mx-auto;
