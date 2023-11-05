@@ -1,4 +1,4 @@
-const NAVPATHS = [
+export const NAVPATHS = [
   {
     id: 0,
     text: "naslovnica",
@@ -80,5 +80,61 @@ const NAVPATHS = [
         children: [],
       },
     ],
+  },
+  {
+    id: 10,
+    text: "članovi",
+    path: "/clanovi",
+    children: [
+      {
+        id: 11,
+        text: "pogodnosti",
+        path: "/pogodnosti",
+        children: [],
+      },
+      {
+        id: 12,
+        text: "učlanite se",
+        path: "/uclanite-se",
+        children: [],
+      },
+    ],
+  },
+  {
+    id: 13,
+    text: "pokrovitelji",
+    path: "/pokrovitelji",
+    children: [
+      {
+        id: 14,
+        text: "platinasti pokrovitelji",
+        path: "/platinasti-pokrovitelji",
+        children: [],
+      },
+      {
+        id: 15,
+        text: "zlatni pokrovitelji",
+        path: "/zlatni-pokrovitelji",
+        children: [],
+      },
+      {
+        id: 16,
+        text: "sreberni pokrovitelji",
+        path: "/sreberni-pokrovitelji",
+        children: [],
+      },
+      {
+        id: 17,
+        text: "medijski pokrovitelji",
+        path: "/medijski-pokrovitelji",
+        children: [],
+      },
+    ],
+  },
+  {
+    id: 18,
+    text: "kontakt",
+    path: "/kontakt",
+    children: [],
   },
 ];

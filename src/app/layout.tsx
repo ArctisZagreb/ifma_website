@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Navigation } from "@/components/Layout/Navigation/Navigation";
+import { IComponentWithChildren } from "@/types/types";
 
-const inter = Inter({ subsets: ["latin"] });
 const monteserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-monteserrat",
 });
-export const metadata: Metadata = {
-  title: "IFMA Hrvatska",
-  description:
-    "Cilj Udruge je poboljšati, unaprijediti i proširiti znanja upravitelja resursima i uslugama (Facility Management) na tržištu, s posebnim naglaskom na članove IFMA-e u Hrvatskoj",
-};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: IComponentWithChildren) {
   return (
     <html lang="en">
       <body
