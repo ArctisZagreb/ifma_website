@@ -37,8 +37,8 @@ const config: Config = {
       fontSize: {
         nav: ["15px", { fontWeight: "400", lineHeight: "15px" }],
         navMobile: [
-          "24px",
-          { fontWeight: "400", lineHeight: "25px", letterSpacing: "3px" },
+          "18px",
+          { fontWeight: "400", lineHeight: "18px", letterSpacing: "2px" },
         ],
         bodyL: ["22px", { fontWeight: "300", lineHeight: "40px" }],
         bodyLMobile: ["18px", { fontWeight: "300", lineHeight: "26px" }],
