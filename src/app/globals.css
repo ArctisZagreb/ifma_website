@@ -109,3 +109,8 @@
 .tap-highlight-removed {
   -webkit-tap-highlight-color: transparent;
 }
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: 2;
+}
