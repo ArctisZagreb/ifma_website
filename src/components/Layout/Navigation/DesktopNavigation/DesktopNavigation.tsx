@@ -7,7 +7,7 @@ import Image from "next/image";
 export const DesktopNavigation = () => {
   return (
     <div className="hidden lg:flex container-wide  items-center justify-between">
-      <div>
+      <div className="flex-1">
         <Link href="/" aria-label="homepage">
           <Image
             src="/assets/logos/ifma.avif"

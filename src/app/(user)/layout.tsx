@@ -12,7 +12,7 @@ const RootLayout = ({ children }: IComponentWithChildren) => {
   return (
     <>
       <Navigation />
-      <main>{children}</main>
+      <main className=""> {children}</main>
     </>
   );
 };

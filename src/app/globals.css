@@ -41,7 +41,10 @@
     @apply absolute  left-0 top-0 bottom-0 right-0 z-[-1] w-full h-full overflow-hidden bg-gradient-to-br from-base-100/10 to-base-300;
   }
   .list-dot {
-    @apply w-[5px] h-[5px] bg-base-content inline-block translate-y-[-3px] mr-[10px];
+    @apply w-[5px] h-[5px] bg-base-content inline-block mt-[8px];
+  }
+  .small-divider {
+    @apply w-[40px] h-[2px] bg-primary block;
   }
 }
 
