@@ -32,7 +32,7 @@ export const MobileNavigation = () => {
       {
         <div
           className={`${
-            openNav ? "opacity-100" : "opacity-0 z-[-20]"
+            openNav ? "opacity-100 " : "opacity-0 z-[-20] translate-x-[-200%] "
           } fixed left-0 top-0 w-full h-screen bg-base-100 z-30 transition-all duration-300 container-wide flex flex-col gap-[20px] items-center lg:hidden `}
         >
           <div className="w-full flex items-center lg:hidden justify-between py-[15px]">

@@ -8,7 +8,7 @@ export const NavigationSubMenu = ({
   subMenuItems: INavItem[];
 }) => {
   return (
-    <ul className="hidden group-hover:flex absolute top-[114px] left-0 border-t-2 border-blue-500 w-[300px]  flex-col opacity-0 shadow-md group-hover:opacity-100 ">
+    <ul className="hidden group-hover:flex absolute top-[114px] left-0 border-t-2 border-blue-500 w-[300px] bg-base-100 flex-col opacity-0 shadow-md group-hover:opacity-100 ">
       {subMenuItems.map((childrenLink) => {
         return (
           <li

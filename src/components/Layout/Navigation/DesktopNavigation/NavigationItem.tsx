@@ -7,7 +7,7 @@ export const NavigationItem = ({ navItem }: { navItem: INavItem }) => {
   return (
     <li
       key={navItem.id}
-      className="uppercase text-nav group relative lg:px-[7px] xl:px-[14px] py-[50px] cursor-pointer "
+      className="uppercase text-nav group relative px-[10px] py-[50px] cursor-pointer "
     >
       <Link href={navItem.path} className="group-hover:text-primary">
         {navItem.text}
