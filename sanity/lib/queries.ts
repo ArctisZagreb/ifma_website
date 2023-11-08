@@ -42,3 +42,11 @@ export const getPosts = async (
     }
   );
 };
+
+export const getBanner = async () => {
+  const groq = `*[_type=='banner']{
+    _id,title,background,color,items
+  }[0]`;
+
+  return client.fetch(groq, {}, { next: { revalidate: 30 } });
+};

@@ -115,6 +115,16 @@ aba {
     background-clip: text;
     text-fill-color: transparent;
   }
+
+  .btn {
+    @apply inline-block p-[20px] uppercase font-bold shadow-md transition-universal;
+  }
+  .btn-neutral {
+    @apply bg-neutral text-neutral-content hover:bg-base-100 hover:text-primary;
+  }
+  .btn-primary {
+    @apply bg-primary-focus text-primary-content hover:bg-base-100 hover:text-primary;
+  }
 }
 .tap-highlight-removed {
   -webkit-tap-highlight-color: transparent;
@@ -123,4 +133,11 @@ aba {
 .nav-grid {
   display: grid;
   grid-template-columns: 2;
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  justify-content: center;
+  grid-gap: 1rem;
 }

@@ -1,16 +1,13 @@
-import { SanityDocument } from "next-sanity";
 import React from "react";
-import { sanityFetch } from "../../../../../sanity/lib/sanityFetch";
-import { getPosts, postsQuery } from "../../../../../sanity/lib/queries";
-import { urlForImage } from "../../../../../sanity/lib/image";
-import Image from "next/image";
-import Link from "next/link";
+
+import { getPosts } from "../../../../../sanity/lib/queries";
+
 import NewsCard from "@/components/cards/NewsCard/NewsCard";
+import Button from "@/components/UI/Button";
 export const LatestNews = async () => {
   /*  const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery }); */
   const posts = await getPosts(3);
 
-  console.log(posts[0]);
   return (
     <div className="flex flex-col items-center gap-[25px]">
       <h2 className=" text-headingMMobile lg:text-headingM">Novosti</h2>
@@ -20,7 +17,9 @@ export const LatestNews = async () => {
           return <NewsCard cardData={post} key={post._id} />;
         })}
       </div>
-      <button>Pogledaj sve novosti</button>
+      <Button type="neutral" path="/novosti">
+        Pogledaj sve novosti
+      </Button>
     </div>
   );
 };

@@ -28,3 +28,10 @@ export interface IPostCategory {
     current: string;
   };
 }
+export interface IIfmaNumbersItemData {
+  number: number;
+  _type: string;
+  icon: any;
+  _key: string;
+  title: string;
+}
