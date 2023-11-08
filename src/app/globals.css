@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+aba {
+  color: rgb(122, 122, 122);
+  color: rgb(0, 123, 182);
+  color: rgb(231, 56, 50);
+  color: rgb(15, 73, 110);
+}
 * {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
@@ -11,16 +17,17 @@
   --color-base-300: 230 230 230;
   --color-base-content: 10 10 10;
 
-  --color-neutral: 74 74 74;
-  --color-neutral-focus: 129 129 129;
-  --color-neutral-content: 247 247 247;
+  --color-neutral: 122 122 122;
+  --color-neutral-200: 153 153 153;
+  --color-neutral-focus: 110 110 110;
+  --color-neutral-content: 255 255 255;
 
   --color-primary: 0 123 182;
-  --color-primary-focus: 195 64 92;
+  --color-primary-focus: 15 73 110;
   --color-primary-content: 255 255 255;
 
   --color-secondary: 229 90 84;
-  --color-secondary-focus: 10 10 10;
+  --color-secondary-focus: 231 26 50;
   --color-secondary-content: 255 255 255;
 }
 @layer base {

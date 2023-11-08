@@ -1,6 +1,7 @@
 import { HeroText } from "@/components/page-parts/Homepage/HeroText";
 import IntroVideo from "@/components/page-parts/Homepage/IntroVideo";
 import { WhyIfma } from "@/components/page-parts/Homepage/WhyIfma";
+import { LatestNews } from "@/components/page-parts/Shared/LatestNews/LatestNews";
 import Image from "next/image";
 
 export default function Home() {
@@ -18,9 +19,10 @@ export default function Home() {
       <section>
         <WhyIfma />
       </section>
-      <div>zasto biti dio ifme</div>
-      <div>zadovoljni clanovi</div>
-      <div>novosti</div>
+
+      <section>
+        <LatestNews />
+      </section>
       <div>ifma u brojkama</div>
       <div>postani clan</div>
       <div>pokrovitelji</div>
