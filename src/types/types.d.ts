@@ -21,3 +21,10 @@ export interface IWhyIfmaCard {
     text: string;
   }[];
 }
+
+export interface IPostCategory {
+  title: string;
+  slug: {
+    current: string;
+  };
+}

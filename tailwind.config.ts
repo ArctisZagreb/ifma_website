@@ -25,6 +25,7 @@ const config: Config = {
         neutral: {
           DEFAULT: "rgb(var(--color-neutral) / <alpha-value>)",
           focus: "rgb(var(--color-neutral-focus) / <alpha-value>)",
+          200: "rgb(var(--color-neutral-200) / <alpha-value>)",
           content: "rgb(var(--color-neutral-content) / <alpha-value>)",
         },
         base: {
@@ -47,6 +48,11 @@ const config: Config = {
           { fontWeight: "400", lineHeight: "26px", letterSpacing: ".8px" },
         ],
         bodyMMobile: ["14px", { fontWeight: "400", lineHeight: "23px" }],
+        bodyS: [
+          "13px",
+          { fontWeight: "400", lineHeight: "18px", letterSpacing: ".8px" },
+        ],
+        bodySMobile: ["11px", { fontWeight: "400", lineHeight: "14px" }],
         headingXL: ["72px", { fontWeight: "400", lineHeight: "70px" }],
         headingXLMobile: ["32px", { fontWeight: "400", lineHeight: "38px" }],
         headingL: ["38px", { lineHeight: "53px", fontWeight: "700" }],
