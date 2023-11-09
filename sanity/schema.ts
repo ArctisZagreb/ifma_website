@@ -5,7 +5,23 @@ import category from "./schemas/category";
 import post from "./schemas/post";
 import author from "./schemas/author";
 import banner from "./schemas/banner";
+import siteSettings from "./schemas/siteSettings";
+import sponsors from "./schemas/sponsors";
+import sponsor from "./schemas/sponsor";
+import memberRole from "./schemas/memberRole";
+import members from "./schemas/members";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, blockContent, banner],
+  types: [
+    post,
+    author,
+    category,
+    blockContent,
+    banner,
+    siteSettings,
+    sponsor,
+    sponsors,
+    memberRole,
+    members,
+  ],
 };
