@@ -1,6 +1,7 @@
 import { HeroText } from "@/components/page-parts/Homepage/HeroText";
 import IntroVideo from "@/components/page-parts/Homepage/IntroVideo";
 import { WhyIfma } from "@/components/page-parts/Homepage/WhyIfma";
+import BecomeMemberBanner from "@/components/page-parts/Shared/BecomeMemberBanner/BecomeMemberBanner";
 import IfmaNumbers from "@/components/page-parts/Shared/IfmaNumbers/IfmaNumbers";
 import { LatestNews } from "@/components/page-parts/Shared/LatestNews/LatestNews";
 import Image from "next/image";
@@ -26,11 +27,15 @@ export default function Home() {
       </section>
       <section className="mb-[70px]">
         <IfmaNumbers />
+        <BecomeMemberBanner />
       </section>
-      <div>postani clan</div>
-      <div>pokrovitelji</div>
-      <div>newsletter</div>
-      <div>footer</div>
+      <section>
+        <div>pokrovitelji</div>
+      </section>
+      <section>
+        <div>newsletter</div>
+        <div>footer</div>
+      </section>
     </main>
   );
 }
