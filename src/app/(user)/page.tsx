@@ -1,10 +1,11 @@
 import { HeroText } from "@/components/page-parts/Homepage/HeroText";
 import IntroVideo from "@/components/page-parts/Homepage/IntroVideo";
+
 import { WhyIfma } from "@/components/page-parts/Homepage/WhyIfma";
 import BecomeMemberBanner from "@/components/page-parts/Shared/BecomeMemberBanner/BecomeMemberBanner";
 import IfmaNumbers from "@/components/page-parts/Shared/IfmaNumbers/IfmaNumbers";
 import { LatestNews } from "@/components/page-parts/Shared/LatestNews/LatestNews";
-import Image from "next/image";
+import { SponsorsList } from "@/components/page-parts/Shared/SponsorsList/SponsorsList";
 
 export default function Home() {
   return (
@@ -29,12 +30,8 @@ export default function Home() {
         <IfmaNumbers />
         <BecomeMemberBanner />
       </section>
-      <section>
-        <div>pokrovitelji</div>
-      </section>
-      <section>
-        <div>newsletter</div>
-        <div>footer</div>
+      <section className="mb-[70px]">
+        <SponsorsList />
       </section>
     </main>
   );

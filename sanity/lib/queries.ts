@@ -1,8 +1,9 @@
 // ./nextjs-app/sanity/lib/queries.ts
-
+import * as EmailValidator from "email-validator";
 import { groq } from "next-sanity";
-import { client } from "./client";
+import { client, writeClient } from "./client";
 import { SanityDocument } from "sanity";
+import { TSponsorsType } from "@/types/types";
 
 // Get all posts
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
@@ -49,4 +50,58 @@ export const getBanner = async () => {
   }[0]`;
 
   return client.fetch(groq, {}, { next: { revalidate: 30 } });
+};
+
+/* Sponsors */
+
+export const getSponsors = async (sponsorCategory: TSponsorsType) => {
+  const filterByCategory = sponsorCategory === "all" ? false : true;
+  let groq = `*[_type=='sponsors' ${
+    filterByCategory ? " && _id == '" + sponsorCategory + "'" : ""
+  }]{
+    _id,items
+  }`;
+  return client.fetch(groq, {}, { next: { revalidate: 30 } });
+};
+
+/* Newsletter */
+
+export const postNewsletterEmail = async (
+  email: string
+): Promise<{ success: boolean; msg: string }> => {
+  //email validation
+  const validEmail = EmailValidator.validate(email);
+  if (!validEmail) {
+    return {
+      success: false,
+      msg: "Email not valid",
+    };
+  }
+  const groq = `*[_type=='newsletterEmailList' && emailAddress== '${email}']`;
+  //check if email alredy exist in db
+  const existingList = await client.fetch(groq, {});
+  console.log(existingList);
+  if (existingList.length !== 0) {
+    return {
+      success: false,
+      msg: "Email alredy existing in newsletter list",
+    };
+  }
+  //posting to db
+  try {
+    await writeClient.create({
+      _type: "newsletterEmailList",
+      emailAddress: email,
+    });
+    return {
+      success: true,
+      msg: "Email added 🙂",
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      success: false,
+      msg: "Something went wrong,please try again.",
+    };
+  }
 };

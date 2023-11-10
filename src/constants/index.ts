@@ -68,13 +68,13 @@ export const NAVPATHS = [
         children: [],
       },
       {
-        id: 10,
+        id: 11,
         text: "eu vijesti",
         path: "/eu-vijesti",
         children: [],
       },
       {
-        id: 10,
+        id: 12,
         text: "lokalne vijesti",
         path: "/lokalne-vijesti",
         children: [],
@@ -82,18 +82,18 @@ export const NAVPATHS = [
     ],
   },
   {
-    id: 10,
+    id: 13,
     text: "članovi",
     path: "/clanovi",
     children: [
       {
-        id: 11,
+        id: 14,
         text: "pogodnosti",
         path: "/pogodnosti",
         children: [],
       },
       {
-        id: 12,
+        id: 15,
         text: "učlanite se",
         path: "/uclanite-se",
         children: [],
@@ -101,30 +101,30 @@ export const NAVPATHS = [
     ],
   },
   {
-    id: 13,
+    id: 16,
     text: "pokrovitelji",
     path: "/pokrovitelji",
     children: [
       {
-        id: 14,
+        id: 17,
         text: "platinasti pokrovitelji",
         path: "/platinasti-pokrovitelji",
         children: [],
       },
       {
-        id: 15,
+        id: 18,
         text: "zlatni pokrovitelji",
         path: "/zlatni-pokrovitelji",
         children: [],
       },
       {
-        id: 16,
+        id: 19,
         text: "sreberni pokrovitelji",
         path: "/sreberni-pokrovitelji",
         children: [],
       },
       {
-        id: 17,
+        id: 20,
         text: "medijski pokrovitelji",
         path: "/medijski-pokrovitelji",
         children: [],
@@ -132,7 +132,7 @@ export const NAVPATHS = [
     ],
   },
   {
-    id: 18,
+    id: 21,
     text: "kontakt",
     path: "/kontakt",
     children: [],

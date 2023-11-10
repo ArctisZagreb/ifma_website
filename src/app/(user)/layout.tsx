@@ -1,3 +1,4 @@
+import Footer from "@/components/Layout/Footer/Footer";
 import { Navigation } from "@/components/Layout/Navigation/Navigation";
 import { IComponentWithChildren } from "@/types/types";
 import type { Metadata } from "next";
@@ -13,6 +14,7 @@ const RootLayout = ({ children }: IComponentWithChildren) => {
     <>
       <Navigation />
       <main className=""> {children}</main>
+      <Footer />
     </>
   );
 };
