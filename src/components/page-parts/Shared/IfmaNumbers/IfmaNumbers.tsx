@@ -6,9 +6,7 @@ import { imageBuilder } from "../../../../../sanity/lib/image";
 
 const IfmaNumbers = async () => {
   const banner = await getBanner();
-  console.log(
-    imageBuilder.image(banner.background).width(1000).height(400).url()
-  );
+
   return (
     <>
       {banner && (

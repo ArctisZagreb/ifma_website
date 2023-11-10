@@ -35,3 +35,17 @@ export interface IIfmaNumbersItemData {
   _key: string;
   title: string;
 }
+export type TSponsorsType =
+  | "all"
+  | "medijski-pokrovitelji"
+  | "platinasti-pokrovitelji"
+  | "zlatni-pokrovitelji"
+  | "sreberni-pokrovitelji";
+
+export interface ISponsorData {
+  url: string;
+  _type: string;
+  name: string;
+  logo: ObjectConstructor[];
+  _key: string;
+}

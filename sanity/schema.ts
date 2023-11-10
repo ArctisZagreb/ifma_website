@@ -10,6 +10,7 @@ import sponsors from "./schemas/sponsors";
 import sponsor from "./schemas/sponsor";
 import memberRole from "./schemas/memberRole";
 import members from "./schemas/members";
+import newsletterEmailList from "./schemas/newsletterEmailList";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,5 +24,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     sponsors,
     memberRole,
     members,
+    newsletterEmailList,
   ],
 };

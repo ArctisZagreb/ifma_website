@@ -141,3 +141,8 @@ aba {
   justify-content: center;
   grid-gap: 1rem;
 }
+.newsletter-background {
+  background: url("/assets/images/newsletter-background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

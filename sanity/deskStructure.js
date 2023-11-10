@@ -108,6 +108,21 @@ export const myStructure = (S) =>
                 ),
             ])
         ),
+      S.listItem()
+        .title("Newsletter")
+        .child(
+          S.list()
+            .title("Newsletter")
+            .items([
+              S.listItem()
+                .title("Preplatnici")
+                .child(
+                  S.documentList()
+                    .title("Email Adrese")
+                    .filter('_type == "newsletterEmailList"')
+                ),
+            ])
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
@@ -119,6 +134,7 @@ export const myStructure = (S) =>
             "sponsors",
             "members",
             "memberRole",
+            "newsletterEmailList",
           ].includes(listItem.getId())
       ),
     ]);
