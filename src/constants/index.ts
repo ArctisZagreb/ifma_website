@@ -204,3 +204,53 @@ export const WHY_IFMA_CARDS = [
     ],
   },
 ];
+
+export const FOOTER_CONTENT = {
+  kontakt: {
+    title: "kontakt informacije",
+    items: [
+      {
+        id: 0,
+        title: "email",
+        values: ["info@ifma.hr"],
+      },
+      {
+        id: 1,
+        title: "adresa",
+        values: ["Primorska ulica 28", "10000 Zagreb, Hrvatska"],
+      },
+    ],
+  },
+  opce: {
+    title: "opće informacije",
+    items: [
+      {
+        id: 0,
+        title: "Registarski broj",
+        values: ["21013553"],
+      },
+      {
+        id: 1,
+        title: "OIB",
+        values: ["66882941436"],
+      },
+      {
+        id: 2,
+        title: "IBAN",
+        values: ["HR2624840081135133554"],
+      },
+    ],
+  },
+  socials: [
+    {
+      id: 0,
+      type: "facebook",
+      url: "https://www.ifma.hr/#",
+    },
+    {
+      id: 1,
+      type: "linkedin",
+      url: "https://www.ifma.hr/#",
+    },
+  ],
+};

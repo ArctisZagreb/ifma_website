@@ -49,3 +49,8 @@ export interface ISponsorData {
   logo: ObjectConstructor[];
   _key: string;
 }
+export interface IFooterListItemData {
+  id: number;
+  title: string;
+  values: string[];
+}

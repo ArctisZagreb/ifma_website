@@ -79,14 +79,22 @@ export const postNewsletterEmail = async (
   }
   const groq = `*[_type=='newsletterEmailList' && emailAddress== '${email}']`;
   //check if email alredy exist in db
-  const existingList = await client.fetch(groq, {});
-  console.log(existingList);
-  if (existingList.length !== 0) {
+  try {
+    const existingList = await client.fetch(groq, {});
+    console.log(existingList);
+    if (existingList.length !== 0) {
+      return {
+        success: false,
+        msg: "Email alredy existing in newsletter list",
+      };
+    }
+  } catch (error) {
     return {
       success: false,
-      msg: "Email alredy existing in newsletter list",
+      msg: "Something went wrong",
     };
   }
+
   //posting to db
   try {
     await writeClient.create({
