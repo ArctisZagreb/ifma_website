@@ -123,6 +123,46 @@ export const myStructure = (S) =>
                 ),
             ])
         ),
+      S.listItem()
+        .title("poruke")
+        .child(
+          S.list()
+            .title("poruke")
+            .items([
+              S.listItem()
+                .title("Kontakt")
+                .child(
+                  S.documentList()
+                    .title("Kontakt")
+                    .filter('_type =="contactMessage" &&  formType=="kontakt" ')
+                ),
+              S.listItem()
+                .title("Članarine")
+                .child(
+                  S.documentList()
+                    .title("Članarine")
+                    .filter(
+                      '_type =="contactMessage" &&  formType=="clanarina" '
+                    )
+                ),
+              S.listItem()
+                .title("Pokrovitelji")
+                .child(
+                  S.documentList()
+                    .title("Pokrovitelji")
+                    .filter(
+                      '_type =="contactMessage" &&  formType=="pokrovitelj" '
+                    )
+                ),
+              S.listItem()
+                .title("Sve")
+                .child(
+                  S.documentList()
+                    .title("Sve poruke")
+                    .filter('_type =="contactMessage"')
+                ),
+            ])
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
@@ -135,6 +175,7 @@ export const myStructure = (S) =>
             "members",
             "memberRole",
             "newsletterEmailList",
+            "contactMessage",
           ].includes(listItem.getId())
       ),
     ]);
