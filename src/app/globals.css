@@ -65,12 +65,50 @@ aba {
   .container-article {
     @apply w-full max-w-[700px] mx-auto max-[732px]:px-[16px];
   }
-
+  .section-mb {
+    @apply mb-[70px];
+  }
+  .article-split {
+    @apply flex flex-col  lg:flex-row;
+  }
+  .article-split-text {
+    @apply flex-1 p-[20px];
+  }
+  .article-split-media {
+    @apply flex-1 w-full;
+  }
+  .article-image-split {
+    @apply w-full h-full max-h-[400px] lg:max-h-[600px];
+  }
+  .article-main-title {
+    @apply flex flex-col gap-[15px] mb-[20px];
+  }
+  .article-dark-wrapper {
+    @apply bg-[url('/assets/images/base/dark-list-bg.avif')] text-white py-[25px] px-[40px];
+  }
+  .list-title {
+    @apply text-bodyMMobile font-semibold flex flex-col gap-[20px] mb-[20px];
+  }
+  .list-title-big {
+    @apply text-headingSMobile lg:text-headingS  flex flex-col gap-[20px] mb-[20px];
+  }
+  .article-list-item {
+    @apply flex justify-start gap-[10px] mb-[10px];
+  }
+  .article-h1 {
+    @apply text-headingLMobile lg:text-headingL;
+  }
+  .article-h1-subtitle {
+    @apply text-headingS;
+  }
   .article-h2 {
     @apply text-headingMMobile md:text-headingM mt-[40px] mb-[20px] uppercase border-b-[1px] border-base-content/20 font-bold;
   }
   .article-h3 {
     @apply text-headingSMobile md:text-headingS mb-[10px] mt-[24px] font-bold;
+  }
+  .article-h4 {
+    @apply font-bold mt-[15px];
   }
   .article-p {
     @apply mb-[8px] text-bodyMMobile md:text-bodyM;
@@ -80,7 +118,7 @@ aba {
     @apply text-primary font-bold;
   }
   .article-text-link {
-    @apply border-b-[3px]  border-primary hover:border-none hover:text-primary transition-all duration-200;
+    @apply text-secondary hover:text-primary transition-all duration-200 cursor-pointer;
   }
   .page-padding {
     @apply pt-[55px] md:pt-[100px] pb-[40px] md:pb-[60px];
@@ -138,6 +176,12 @@ aba {
 .banner-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  justify-content: center;
+  grid-gap: 1rem;
+}
+.boardmembers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
   justify-content: center;
   grid-gap: 1rem;
 }

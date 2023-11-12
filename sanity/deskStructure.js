@@ -106,6 +106,14 @@ export const myStructure = (S) =>
                     .title("Lista Pozicija")
                     .filter('_type == "memberRole" ')
                 ),
+              S.listItem()
+                .title("Prikaz Na Stranici")
+                .child(
+                  S.document()
+                    .title("Prikaz na Stranici")
+                    .schemaType("boardMembersShowcase")
+                    .documentId("showcase")
+                ),
             ])
         ),
       S.listItem()
@@ -176,6 +184,7 @@ export const myStructure = (S) =>
             "memberRole",
             "newsletterEmailList",
             "contactMessage",
+            "boardMembersShowcase",
           ].includes(listItem.getId())
       ),
     ]);

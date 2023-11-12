@@ -2,6 +2,7 @@ import { IWhyIfmaCard } from "@/types/types";
 import React from "react";
 import Image from "next/image";
 import { TfiArrowCircleRight } from "react-icons/tfi";
+import ArticleListItem from "@/components/article/ArticleListItem";
 export const WhyIfmaCard: React.FC<{ cardData: IWhyIfmaCard }> = ({
   cardData,
 }) => {
@@ -28,25 +29,15 @@ export const WhyIfmaCard: React.FC<{ cardData: IWhyIfmaCard }> = ({
         </h3>
       </div>
       <span className="small-divider"></span>
-      <ul className="p-[10px]">
+      <ul className="p-[10px] ">
         {points.map((point, i) => {
           return (
-            <li
+            <ArticleListItem
+              lastInList={i === points.length - 1}
               key={point.id}
-              className="flex justify-start gap-[10px] mb-[10px] "
             >
-              <TfiArrowCircleRight size={14} className="mt-[4px]" />
-
-              <p
-                className={`flex-1 ${
-                  i === points.length - 1
-                    ? ""
-                    : " border-b-[1px] border-base-300 pb-[10px]"
-                } `}
-              >
-                {point.text}
-              </p>
-            </li>
+              {point.text}
+            </ArticleListItem>
           );
         })}
       </ul>

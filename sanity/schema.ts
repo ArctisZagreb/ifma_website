@@ -12,6 +12,7 @@ import memberRole from "./schemas/memberRole";
 import members from "./schemas/members";
 import newsletterEmailList from "./schemas/newsletterEmailList";
 import contactMessage from "./schemas/contactMessage";
+import boardMembersShowcase from "./schemas/boardMembersShowcase";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,5 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     members,
     newsletterEmailList,
     contactMessage,
+    boardMembersShowcase,
   ],
 };

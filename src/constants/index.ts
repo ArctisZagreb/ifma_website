@@ -254,3 +254,27 @@ export const FOOTER_CONTENT = {
     },
   ],
 };
+
+export const ABOUT_US_CARDS = [
+  {
+    id: "0",
+    title: "IFMA",
+    path: "/ifma",
+    image: "/assets/images/o-nama/card-ifma.webp",
+    text: "International Facility Management Association (IFMA) je neprofitna udruga osnovana 1980. godine u Sjedinjenim Američkim Državama za promicanje i razvoj Facility Managementa, discipline upravljanja resursima i uslugama kao podrška poslovanju organizacija.",
+  },
+  {
+    id: "1",
+    title: "IFMA u Hrvatskoj",
+    path: "/ifma-u-hrvatskoj",
+    image: "/assets/images/o-nama/card-ifma-u-hrvatskoj.webp",
+    text: "IFMA Croatia Chapter je hrvatski ogranak međunarodnog udruženja za upravljanje resursima i uslugama, s ciljem lokalne i regionalne promocije te razvoja profesije Facility Managementa.",
+  },
+  {
+    id: "2",
+    title: "Upravni odbor",
+    path: "/upravni-odbor",
+    image: "/assets/images/o-nama/card-upravni.webp",
+    text: "Upravni odbor IFMA Croatia Chaptera sastoji se od aktivnih suradnika i stručnih predstavnika priznatih u području profesionalnog upravljanja resursima i uslugama, koji uživaju ugled i povjerenje članova IFMA Croatia Chapter-a kao i IFMA Europe i IFMA Upravnog odbora.",
+  },
+];
