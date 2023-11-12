@@ -81,7 +81,7 @@ export const postNewsletterEmail = async (
   //check if email alredy exist in db
   try {
     const existingList = await client.fetch(groq, {});
-    console.log(existingList);
+
     if (existingList.length !== 0) {
       return {
         success: false,

@@ -51,7 +51,7 @@ aba {
     @apply w-[5px] h-[5px] bg-base-content inline-block mt-[8px];
   }
   .small-divider {
-    @apply w-[40px] h-[2px] bg-primary block;
+    @apply w-[40px] h-[2px] bg-primary block my-[10px];
   }
 }
 
@@ -77,10 +77,13 @@ aba {
   .article-split-media {
     @apply flex-1 w-full;
   }
-  .article-image-split {
-    @apply w-full h-full max-h-[400px] lg:max-h-[600px];
+  .article-image-split-container {
+    @apply h-full;
   }
-  .article-main-title {
+  .article-image-split {
+    @apply w-full h-full object-cover;
+  }
+  .article-main-title-container {
     @apply flex flex-col gap-[15px] mb-[20px];
   }
   .article-dark-wrapper {
@@ -92,6 +95,10 @@ aba {
   .list-title-big {
     @apply text-headingSMobile lg:text-headingS  flex flex-col gap-[20px] mb-[20px];
   }
+  .article-list-disc {
+    @apply list-disc pl-[20px] pb-[10px] text-bodyMMobile md:text-bodyM;
+  }
+
   .article-list-item {
     @apply flex justify-start gap-[10px] mb-[10px];
   }
@@ -108,17 +115,23 @@ aba {
     @apply text-headingSMobile md:text-headingS mb-[10px] mt-[24px] font-bold;
   }
   .article-h4 {
-    @apply font-bold mt-[15px];
+    @apply font-bold mt-[15px] mb-[5px];
   }
   .article-p {
-    @apply mb-[8px] text-bodyMMobile md:text-bodyM;
+    @apply mb-[12px] text-bodyMMobile md:text-bodyM;
   }
 
   .article-emphesise {
-    @apply text-primary font-bold;
+    @apply font-bold;
   }
   .article-text-link {
     @apply text-secondary hover:text-primary transition-all duration-200 cursor-pointer;
+  }
+  .article-video {
+    @apply w-[80%] mx-auto mb-[30px];
+  }
+  .article-video-full {
+    @apply mx-auto;
   }
   .page-padding {
     @apply pt-[55px] md:pt-[100px] pb-[40px] md:pb-[60px];
@@ -184,6 +197,11 @@ aba {
   grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
   justify-content: center;
   grid-gap: 1rem;
+}
+.responsibility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
+  justify-content: center;
 }
 .newsletter-background {
   background: url("/assets/images/newsletter-background.webp");

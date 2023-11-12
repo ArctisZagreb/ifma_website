@@ -10,7 +10,7 @@ const IfmaPage = () => {
       <article className="section-mb">
         <div className="article-split">
           <div className="article-split-text">
-            <div className="article-main-title">
+            <div className="article-main-title-container">
               <h1 className="article-h1">IFMA</h1>
               <p className="article-h1-subtitle">
                 International Facility Management Association
@@ -42,14 +42,16 @@ const IfmaPage = () => {
           </div>
 
           <div className="article-split-media">
-            <Image
-              src="/assets/images/o-nama/IFMA-1.jpg"
-              width={600}
-              height={400}
-              alt="decorative image"
-              className="article-image-split"
-              loading="eager"
-            />
+            <div className="article-image-split-container ">
+              <Image
+                src="/assets/images/o-nama/IFMA-1.jpg"
+                width={600}
+                height={400}
+                alt="decorative image"
+                className="article-image-split"
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
         <div className="article-dark-wrapper">

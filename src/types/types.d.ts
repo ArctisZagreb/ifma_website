@@ -78,3 +78,14 @@ export interface IShowcaseMemberCardData {
   surname: string;
   _id: string;
 }
+
+export interface IResponsobilityCardData {
+  id: string;
+  title: string;
+  subtitle: string;
+  items: {
+    id: string;
+    text: string;
+  }[];
+  number: number;
+}

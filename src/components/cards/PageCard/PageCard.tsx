@@ -1,9 +1,8 @@
-import { ABOUT_US_CARDS } from "@/constants";
 import { IPageCardData } from "@/types/types";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
+export const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
   const { image, title, text, path } = cardData;
   return (
     <div className="w-full max-w-[360px]">
@@ -33,5 +32,3 @@ const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
     </div>
   );
 };
-
-export default PageCard;

@@ -6,11 +6,10 @@ import { IShowcaseMemberCardData } from "@/types/types";
 const UpravniOdborPage = async () => {
   const boardMembersToShow = await getBoardMembersShowcase();
 
-  console.log("banana", boardMembersToShow.showcaseList);
   return (
     <>
       <section className="section-mb">
-        <div className="article-main-title">
+        <div className="article-main-title-container">
           <h1 className="article-h1">Upravni odbor</h1>
           <p className="article-h1-subtitle">IFMA Croatia Chapter</p>
           <span className="small-divider"></span>

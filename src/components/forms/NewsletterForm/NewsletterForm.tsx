@@ -11,7 +11,7 @@ const NewsletterForm = () => {
     setIdle(true);
 
     const resStatus = await postNewsletterEmail(email);
-    console.log(resStatus);
+
     setIdle(false);
     if (resStatus.success) {
       setEmail("");
