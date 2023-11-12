@@ -11,26 +11,26 @@ export default function Home() {
   return (
     <main className="container-wide">
       <section>
-        <div className=" mb-[70px]">
+        <div className=" section-mb">
           <IntroVideo />
         </div>
 
-        <div className="mb-[70px]">
+        <div className="section-mb">
           <HeroText />
         </div>
       </section>
-      <section className="mb-[70px]">
+      <section className="section-mb">
         <WhyIfma />
       </section>
 
-      <section className="mb-[70px]">
+      <section className="section-mb">
         <LatestNews />
       </section>
-      <section className="mb-[70px]">
+      <section className="section-mb">
         <IfmaNumbers />
         <BecomeMemberBanner />
       </section>
-      <section className="mb-[70px]">
+      <section className="section-mb">
         <SponsorsList />
       </section>
     </main>

@@ -54,3 +54,27 @@ export interface IFooterListItemData {
   title: string;
   values: string[];
 }
+
+export interface IPageCardData {
+  id: string;
+  title: string;
+  path: string;
+  image: string;
+  text: string;
+}
+export interface IShowcaseMemberCardData {
+  slug: {
+    current: string;
+    _type: string;
+  };
+  image: {
+    asset: ObjectConstructor[];
+    _type: string;
+  };
+  role: {
+    title: string;
+  };
+  name: string;
+  surname: string;
+  _id: string;
+}

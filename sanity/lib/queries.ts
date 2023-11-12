@@ -113,3 +113,13 @@ export const postNewsletterEmail = async (
     };
   }
 };
+
+/* Members */
+
+export const getBoardMembersShowcase = async () => {
+  let groq = `*[_type=='boardMembersShowcase' && _id=='showcase' ]{
+    showcaseList[]->{name,surname,slug,image,role->{title},_id}
+  }[0]`;
+
+  return client.fetch(groq, {}, { next: { revalidate: 120 } });
+};
