@@ -9,7 +9,7 @@ const IfmaUHrvatskojPage = () => {
       <article>
         <div className="article-split">
           <div className="article-split-text">
-            <div className="article-main-title">
+            <div className="article-main-title-container">
               <h1 className="article-h1">IFMA</h1>
               <p className="article-h1-subtitle">
                 International Facility Management Association
@@ -44,13 +44,16 @@ const IfmaUHrvatskojPage = () => {
             </p>
           </div>
           <div className="article-split-media ">
-            <Image
-              src="/assets/images/o-nama/ifma-hrvatska.jpg"
-              width={600}
-              height={400}
-              className="article-image-split"
-              alt="decoration image"
-            />
+            <div className="article-image-split-container ">
+              <Image
+                src="/assets/images/o-nama/ifma-hrvatska.jpg"
+                width={600}
+                height={400}
+                className="article-image-split"
+                alt="decoration image"
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
         <div className="article-dark-wrapper">

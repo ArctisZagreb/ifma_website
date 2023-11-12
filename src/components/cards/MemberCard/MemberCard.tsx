@@ -10,7 +10,7 @@ export const MemberCard = ({
   const { surname, image, name, role } = cardData;
 
   return (
-    <div className="border-[1px] border-base-300 max-w-[450px] w-full pb-[50px]">
+    <div className="border-[1px] border-base-300 max-w-[450px] w-full pb-[50px] shadow-sm">
       <Image
         width={450}
         height={450}

@@ -15,13 +15,16 @@
     "date-fns": "^2.30.0",
     "email-validator": "^2.0.4",
     "framer-motion": "^10.16.4",
+    "get-youtube-id": "^1.0.1",
     "next": "14.0.1",
     "next-sanity": "^5.5.10",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
+    "react-lite-youtube-embed": "^2.3.52",
     "sanity": "^3.19.0",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.1.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
