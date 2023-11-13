@@ -35,6 +35,8 @@ export interface IIfmaNumbersItemData {
   _key: string;
   title: string;
 }
+
+/* Sponsors */
 export type TSponsorsType =
   | "all"
   | "medijski-pokrovitelji"
@@ -88,4 +90,12 @@ export interface IResponsobilityCardData {
     text: string;
   }[];
   number: number;
+}
+
+/* Contact Form */
+export type TFormTypes = "kontakt" | "pokrovitelj" | "clanarina";
+export interface ISubmitContactFormData {
+  name: string;
+  email: string;
+  message: string;
 }

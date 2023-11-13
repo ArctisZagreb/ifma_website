@@ -37,7 +37,7 @@ const NewsCard = ({ cardData }: { cardData: SanityDocument }) => {
             return (
               <Link
                 key={category.title}
-                href={`/novosti/${category.slug.current}`}
+                href={`/novosti?category=${category.slug.current}`}
                 className="text-bodySMobile bg-neutral text-neutral-content hover:bg-neutral-focus p-[4px] transition-universal"
               >
                 {category.title}
