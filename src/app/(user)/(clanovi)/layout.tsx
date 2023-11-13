@@ -1,5 +1,3 @@
-import BecomeMemberBanner from "@/components/page-parts/Shared/BecomeMemberBanner/BecomeMemberBanner";
-import { SponsorsList } from "@/components/page-parts/Shared/SponsorsList/SponsorsList";
 import { IComponentWithChildren } from "@/types/types";
 
 const RootLayout = ({ children }: IComponentWithChildren) => {
