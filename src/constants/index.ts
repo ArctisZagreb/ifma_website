@@ -85,7 +85,7 @@ export const NAVPATHS = [
   {
     id: 13,
     text: "članovi",
-    path: "/clanovi",
+    path: "/postanite-clan",
     children: [
       {
         id: 14,
@@ -282,6 +282,7 @@ export const FACILITY_MANAGEMENT_CARDS = [
     text: "Prema „Global FM market report 2018“ globalno FM tržište 2017. godine iznosilo je 1152 milijardi USD, a postotak zaposlenih u FM industriji u ukupnom broju zaposlenih iznosio je 1,7%.",
   },
 ];
+
 export const ABOUT_US_CARDS = [
   {
     id: "0",
@@ -305,7 +306,7 @@ export const ABOUT_US_CARDS = [
     text: "Upravni odbor IFMA Croatia Chaptera sastoji se od aktivnih suradnika i stručnih predstavnika priznatih u području profesionalnog upravljanja resursima i uslugama, koji uživaju ugled i povjerenje članova IFMA Croatia Chapter-a kao i IFMA Europe i IFMA Upravnog odbora.",
   },
 ];
-import { HiMiniUser } from "react-icons/hi2";
+
 export const FACILITY_MANAGERS_RESPONSABILITIES = [
   {
     id: uuid(),
@@ -654,4 +655,96 @@ export const TRZISTE_STRATEGIJE_TOCKE = [
     title: "Zdravo i sigurno radno mjesto",
     list: null,
   },
+];
+
+/* Clanovi pages data */
+export const CLANOVI_CARDS = [
+  {
+    id: uuid(),
+    title: "Pogodnosti",
+    path: "/pogodnosti",
+    image: "/assets/images/clanovi/card-pogodnosti.avif",
+    text: "",
+  },
+  {
+    id: uuid(),
+    title: "Učlanite se",
+    path: "/uclanite-se",
+    image: "/assets/images/clanovi/card-uclanite-se.avif",
+    text: "",
+  },
+];
+export const GLAVNE_POGODNOSTI = [
+  {
+    id: uuid(),
+    title: "POVEZIVANJE ČLANOVA",
+    text: "Povezivanje s kolegama iz profesije radi suočavanja s izazovima s kojima se FM profesionalci susreću svaki dan – od upravljanja projektima i rizicima, do održivosti, strateškog planiranja i operativne efikasnosti",
+  },
+  {
+    id: uuid(),
+    title: "SUDJELOVANJE NA DOGAĐANJIMA",
+    text: "Sudjelovanje na IFMA-inim događanjima radi umrežavanja i edukacije o najnovijim trendovima i najboljim praksama u industriji, obilasci nekretnina i ostali stručni skupovi",
+  },
+  {
+    id: uuid(),
+    title: "PRISTUP INTERESNIM GRUPACIJAMA",
+    text: "Povezivanje sa specifičnim grupacijama članova temeljenim na stručnim FM kompetencijama (6 svjetskih zajednica) ili poslovnim područjima (16 vijeća industrija)",
+  },
+  {
+    id: uuid(),
+    title: "PRISTUP DOKUMENTACIJI",
+    text: "Pristup smjernicama, standardima, kategorizacijama i ostaloj stručnoj dokumentaciji putem IFMA-inih portala",
+  },
+  {
+    id: uuid(),
+    title: "KORIŠTENJE BAZE ZNANJA",
+    text: "Mogućnost korištenja baze znanja na IFMA.org i lokalno: studije slučaja, ankete, analize tržišta (godišnje izvješće stanja na tržištu dobiveno kroz anketu među članovima)",
+  },
+  {
+    id: uuid(),
+    title: "ONLINE PROVJERA ZNANJA",
+    text: "Provjera znanja o upravljanju resursima i uslugama (FM) putem internetskih kvizova koji daju povratnu informaciju u kojem području je potrebno nadograditi FM kompetencije",
+  },
+  {
+    id: uuid(),
+    title: "PRISTUP JOBNET PORTALU",
+    text: "Pristup JOBNet portalu – bazi podataka FM tvrtki prema uslugama koje nude, poslodavaca koji traže zaposlenike i zaposlenika koji traže posao",
+  },
+  {
+    id: uuid(),
+    title: "PUT PREMA RICS AKREDITACIJI",
+    text: "Zahvaljujući partnerskom odnosu IFMA-e i RICS-a, svim članovima IFMA-e omogućen je put prema Associate RICS akreditaciji",
+  },
+  {
+    id: uuid(),
+    title: "POPUSTI",
+    text: "Članovi IFMA-e ostvaruju popuste na konferencije, edukacije, certifikate, stručne materijale, knjige itd.",
+  },
+];
+
+export const SVJETSKE_ZAJEDNICE = [
+  "INFORMATION TECHNOLOGY COMMUNITY",
+  "WORKPLACE EVOLUTIONARIES (WE) COMMUNITY",
+  "OPERATIONS & MAINTENANCE HEALTH & SAFETY COMMUNITY",
+  "BUSINESS COMMUNITY (BUS)",
+  "REAL ESTATE ADVISORY AND LEADERSHIP COMMUNITY",
+  "ENVIRONMENTAL STEWARDSHIP UTILITIES & SUSTAINABILITY COMMUNITY",
+];
+export const SVJETSKA_VJECA = [
+  "ACADEMIC FACILITIES COUNCIL",
+  "AIRPORT FACILITIES COUNCIL",
+  "BANKING INSTITUTIONS & CREDIT UNIONS COUNCIL",
+  "CITY & COUNTRY CLUBS COUNCIL",
+  "CORPORATE FACILITIES COUNCIL",
+  "FM CONSULTANTS COUNCIL",
+  "HEALTH CARE COUNCIL",
+  "HOSPITALITY COUNCIL",
+  "LEGAL INDUSTRY COUNCIL",
+  "MANUFACTURING, INDUSTRIAL & LOGISTICS COUNCIL",
+  "MUSEUM/CULTURAL INSTITUTIONS COUNCIL",
+  "NONPROFIT FACILITIES COUNCIL",
+  "PUBLIC SECTOR FACILITIES COUNCIL",
+  "RESEARCH & DEVELOPMENT FACILITIES COUNCIL",
+  "RETAIL FACILITIES COUNCIL",
+  "UTILITIES COUNCIL",
 ];

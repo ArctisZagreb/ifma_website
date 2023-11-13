@@ -68,6 +68,8 @@ const config: Config = {
       backgroundColor: {
         "neutral-gradient":
           "linear-gradient(45deg, var(--color-neutral) , var(--color-neutral-focus))",
+        "dark-gradient":
+          "linear-gradient(45deg, rgba(0,0,0,0) , rgba(0,0,0,0))",
       },
     },
   },

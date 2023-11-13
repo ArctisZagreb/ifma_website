@@ -12,7 +12,7 @@ const BecomeMemberBanner = () => {
         Učlanite se u najveću svjetsku organizaciju Facility Management
         profesionalaca
       </p>
-      <Button type="primary" path="/uclani-se">
+      <Button type="primary" path="/uclanite-se#contact-form">
         Postanite član
       </Button>
     </div>

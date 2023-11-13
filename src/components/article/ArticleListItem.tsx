@@ -11,16 +11,10 @@ const ArticleListItem = ({
   borderColor?: string;
 }) => {
   return (
-    <li className="article-list-item">
+    <li className={`article-list-item ${borderColor} `}>
       <TfiArrowCircleRight size={14} className="mt-[4px]" />
 
-      <p
-        className={`flex-1 ${
-          lastInList ? "" : ` border-b-[1px]  ${borderColor}  pb-[10px]`
-        } `}
-      >
-        {children}
-      </p>
+      <p className={`flex-1 `}>{children}</p>
     </li>
   );
 };

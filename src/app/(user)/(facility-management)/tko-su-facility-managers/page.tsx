@@ -74,7 +74,7 @@ const TkoSuFacilityManagersPage = () => {
         </div>
       </section>
       <section className="section-mb">
-        <div className="responsibility-grid">
+        <div className="grid-regular">
           {FACILITY_MANAGERS_RESPONSABILITIES.map((card, i) => {
             return (
               <ResponsibilityCard
