@@ -50,12 +50,12 @@ export const MobileNavigation = () => {
               <AiOutlineClose size={24} />
             </button>
           </div>
-          <ul className="grid  grid-cols-2  gap-[15px] text-navMobile">
+          <ul className="grid  gap-[20px] text-navMobile">
             {NAVPATHS.map((item, i) => {
               return (
                 <li
                   key={item.id}
-                  className={`  pb-[20px] ${
+                  className={`  pb-[10px] ${
                     i % 2 === 1 ? "border-l-[1px]" : ""
                   } text-center `}
                 >
@@ -68,7 +68,7 @@ export const MobileNavigation = () => {
                   >
                     {item.text}
                   </Link>
-                  {item.children.length > 0 && (
+                  {/* {item.children.length > 0 && (
                     <ul className="pl-[10px] pt-[10px]">
                       {item.children.map((subItem) => {
                         return (
@@ -83,7 +83,7 @@ export const MobileNavigation = () => {
                         );
                       })}
                     </ul>
-                  )}
+                  )} */}
                 </li>
               );
             })}

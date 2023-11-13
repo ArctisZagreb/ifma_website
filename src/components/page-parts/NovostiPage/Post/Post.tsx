@@ -8,24 +8,50 @@ import imageUrlBuilder from "@sanity/image-url";
 import { SanityDocument } from "@sanity/client";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/../sanity/lib/client";
+import PostHeader from "./PostHeader";
+import PostBody from "./PostBody";
+import PostSidebarLinks from "./PostSidebarLinks";
 
 const builder = imageUrlBuilder(client);
 
 export default function Post({ post }: { post: SanityDocument }) {
+  const { title, body, mainImage, publishedAt, categories } = post;
+
   return (
-    <main className="container mx-auto prose prose-lg p-4">
-      <h1>{post.title}</h1>
-      {post?.mainImage ? (
-        <Image
-          className="float-left m-0 w-1/3 mr-4 rounded-lg"
-          src={builder.image(post.mainImage).width(300).height(300).url()}
-          width={300}
-          height={300}
-          alt={post?.mainImage?.alt}
-          loading="eager"
+    <article className="flex flex-col gap-[20px]">
+      <div>
+        <PostHeader
+          title={title}
+          published={publishedAt}
+          categories={categories}
         />
-      ) : null}
-      {post?.body ? <PortableText value={post.body} /> : null}
-    </main>
+      </div>
+      <div className="w-full h-[300px] lg:h-[600px] ">
+        {post?.mainImage ? (
+          <>
+            <Image
+              className=" w-full h-full hidden lg:block object-cover"
+              src={builder.image(post.mainImage).width(1200).height(600).url()}
+              width={1200}
+              height={600}
+              alt={post?.mainImage?.alt}
+              loading="eager"
+            />
+            <Image
+              className=" w-full h-full lg:hidden object-cover"
+              src={builder.image(post.mainImage).width(600).height(300).url()}
+              width={600}
+              height={300}
+              alt={post?.mainImage?.alt}
+              loading="eager"
+            />
+          </>
+        ) : null}
+      </div>
+      <div className="flex flex-row">
+        <PostBody body={post.body} />
+        <PostSidebarLinks />
+      </div>
+    </article>
   );
 }

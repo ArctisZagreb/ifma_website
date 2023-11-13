@@ -1,11 +1,15 @@
 import React from "react";
 import { getSponsors } from "../../../../../sanity/lib/queries";
 import { SponsorCard } from "@/components/cards/SponsorCard/SponsorCard";
-import { ISponsorData } from "@/types/types";
+import { ISponsorData, TSponsorsType } from "@/types/types";
 import Button from "@/components/UI/Button";
 
-export const SponsorsList = async () => {
-  const sponsors = await getSponsors("all");
+export const SponsorsList = async ({
+  sponsorsType,
+}: {
+  sponsorsType: TSponsorsType;
+}) => {
+  const sponsors = await getSponsors(sponsorsType);
 
   //put all four categories of sponsors to single array
   const allSponsorsCombined = () => {
@@ -36,9 +40,11 @@ export const SponsorsList = async () => {
   };
   return (
     <div>
-      <h2 className="text-headingMMobile lg:text-headingM text-center mb-[60px]">
-        Pokrovitelji
-      </h2>
+      {sponsorsType === "all" && (
+        <h2 className="text-headingMMobile lg:text-headingM text-center mb-[60px]">
+          Pokrovitelji
+        </h2>
+      )}
       {sponsors && (
         <div className="flex justify-around flex-col max-lg:items-center max-lg:gap-[20px] lg:flex-row mb-[45px]">
           {allSponsorsCombined().map((sponsor: ISponsorData) => {

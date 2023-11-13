@@ -11,7 +11,7 @@ const RootLayout = ({ children }: IComponentWithChildren) => {
         <BecomeMemberBanner />
       </section>
       <section className="section-mb">
-        <SponsorsList />
+        <SponsorsList sponsorsType="all" />
       </section>
     </div>
   );

@@ -17,7 +17,7 @@ const ONamaPage = () => {
         <BecomeMemberBanner />
       </section>
       <section className="section-mb">
-        <SponsorsList />
+        <SponsorsList sponsorsType="all" />
       </section>
     </>
   );

@@ -31,7 +31,7 @@ export default function Home() {
         <BecomeMemberBanner />
       </section>
       <section className="section-mb">
-        <SponsorsList />
+        <SponsorsList sponsorsType="all" />
       </section>
     </main>
   );

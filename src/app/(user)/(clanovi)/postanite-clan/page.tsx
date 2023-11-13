@@ -18,7 +18,7 @@ const PostaniteClanPage = () => {
         <BecomeMemberBanner />
       </section>
       <section className="section-mb container-wide ">
-        <SponsorsList />
+        <SponsorsList sponsorsType="all" />
       </section>
     </>
   );

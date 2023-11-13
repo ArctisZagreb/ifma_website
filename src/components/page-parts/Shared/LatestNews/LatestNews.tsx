@@ -6,7 +6,7 @@ import NewsCard from "@/components/cards/NewsCard/NewsCard";
 import Button from "@/components/UI/Button";
 export const LatestNews = async () => {
   /*  const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery }); */
-  const posts = await getPosts(3);
+  const posts = await getPosts(3, "all");
 
   return (
     <div className="flex flex-col items-center gap-[25px]">

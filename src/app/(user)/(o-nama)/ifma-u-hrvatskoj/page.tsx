@@ -93,7 +93,7 @@ const IfmaUHrvatskojPage = () => {
         <BecomeMemberBanner />
       </section>
       <section>
-        <SponsorsList />
+        <SponsorsList sponsorsType="all" />
       </section>
     </>
   );
