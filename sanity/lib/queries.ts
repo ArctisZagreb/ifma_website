@@ -3,7 +3,11 @@ import * as EmailValidator from "email-validator";
 import { groq } from "next-sanity";
 import { client, writeClient } from "./client";
 import { SanityDocument } from "sanity";
-import { TSponsorsType } from "@/types/types";
+import {
+  ISubmitContactFormData,
+  TFormTypes,
+  TSponsorsType,
+} from "@/types/types";
 
 // Get all posts
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
@@ -22,10 +26,25 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
 
 //get posts , order by publishedAt TODO:add option to filter by category and asc or desc
 export const getPosts = async (
-  numberOfPosts: number | "all"
+  numberOfPosts: number | "all",
+  typeOfPosts?: string
 ): Promise<SanityDocument[]> => {
-  let groq = `*[_type == "post" && defined(slug.current)]{
-    _id, title, slug,mainImage,previewText,publishedAt,categories[]->{title,slug}
+  let postCategory = "";
+  if (typeOfPosts) {
+    postCategory = [
+      "globalne-vijesti",
+      "lokalne-vijesti",
+      "eu-vijesti",
+    ].includes(typeOfPosts)
+      ? typeOfPosts
+      : "all";
+  }
+  let groq = `*[_type == "post" ${
+    postCategory !== "all"
+      ? ` && count((categories[]->slug.current)[@ in ["${typeOfPosts}"]]) > 0`
+      : ""
+  }]{
+    _id, title, slug,mainImage,previewText,publishedAt,categories[]->{title,slug},body,author->{name,slug,_id}
   }`;
   if (numberOfPosts !== "all") {
     groq += `[0...${numberOfPosts}]`;
@@ -122,4 +141,46 @@ export const getBoardMembersShowcase = async () => {
   }[0]`;
 
   return client.fetch(groq, {}, { next: { revalidate: 120 } });
+};
+
+/* Contact Form */
+
+export const postContactMessage = async (
+  submitFormData: ISubmitContactFormData,
+  formType: TFormTypes
+): Promise<{ success: boolean; msg: string }> => {
+  /* Validation of data */
+  const { email, name, message } = submitFormData;
+  const validEmail = EmailValidator.validate(email);
+  if (!validEmail) {
+    return {
+      success: false,
+      msg: "Email nije validan",
+    };
+  }
+  if (!name || !message) {
+    return {
+      success: false,
+      msg: "Nisu sva polja popunjena",
+    };
+  }
+  /* submiting data */
+  try {
+    await writeClient.create({
+      _type: "contactMessage",
+      email,
+      sender: name,
+      message: message,
+      formType,
+    });
+    return {
+      success: true,
+      msg: "Poruka poslana,kontaktirat cemo vas prvom prilikom 🙂",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      msg: "Došlo je do greške.Pokušajte ponovno ili nam pošaljite izravnu e-poštu. Hvala vam.",
+    };
+  }
 };

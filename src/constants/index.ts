@@ -65,19 +65,19 @@ export const NAVPATHS = [
       {
         id: 10,
         text: "globalne vijesti",
-        path: "/globalne-vijesti",
+        path: "/novosti?category=globalne-vijesti",
         children: [],
       },
       {
         id: 11,
         text: "eu vijesti",
-        path: "/eu-vijesti",
+        path: "/novosti?category=eu-vijesti",
         children: [],
       },
       {
         id: 12,
         text: "lokalne vijesti",
-        path: "/lokalne-vijesti",
+        path: "/novosti?category=lokalne-vijesti",
         children: [],
       },
     ],
