@@ -16,13 +16,20 @@ export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
 
 // Get a single post by its slug
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{ 
-    title, mainImage, body,publishedAt
+    title, mainImage, body,publishedAt,slug,categories[]->{slug,title}
   }`;
 
 // Get all post slugs
 export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]{
     "params": { "slug": slug.current }
   }`;
+
+//get post categories
+export const getCategories = async () => {
+  const groq = `*[_type=='category']{slug,title}`;
+
+  return client.fetch(groq, {}, { next: { revalidate: 300 } });
+};
 
 //get posts , order by publishedAt TODO:add option to filter by category and asc or desc
 export const getPosts = async (

@@ -9,7 +9,7 @@ export const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
       <Link
         href={path}
         aria-label={title}
-        className="overflow-hidden block h-[360px] w-full mb-[15px]"
+        className="overflow-hidden block h-[200px] md:h-[360px] w-full mb-[15px]"
       >
         <Image
           aria-hidden={true}
@@ -17,7 +17,7 @@ export const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
           height={360}
           src={image}
           alt="decorative image"
-          className=" hover:scale-110 transition-universal h-full"
+          className=" hover:scale-110 transition-universal h-full object-cover"
         />
       </Link>
       <div className="flex flex-col gap-[20px]">
