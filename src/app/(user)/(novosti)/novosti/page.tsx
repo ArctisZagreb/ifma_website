@@ -12,7 +12,7 @@ const NovostiPage = async ({
   const queryParams = searchParams?.category ? searchParams.category : "all";
 
   const posts = await getPosts("all", queryParams);
-  console.log(posts.length);
+
   return (
     <div className="section-mb">
       <div className="flex flex-col items-center mx-auto section-mb">
@@ -20,7 +20,7 @@ const NovostiPage = async ({
         <span className="small-divider"></span>
       </div>
       {posts && (
-        <section className="news-grid ">
+        <section className="grid-regular justify-around ">
           {posts.map((post) => {
             return <NewsCard cardData={post} key={post._id} />;
           })}
