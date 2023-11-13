@@ -48,7 +48,7 @@ export default function Post({ post }: { post: SanityDocument }) {
           </>
         ) : null}
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-col gap-[20px] lg:flex-row">
         <PostBody body={post.body} />
         <PostSidebarLinks />
       </div>
