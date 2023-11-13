@@ -28,7 +28,7 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
 export const getCategories = async () => {
   const groq = `*[_type=='category']{slug,title}`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 300 } });
+  return client.fetch(groq, {}, { next: { revalidate: 600 } });
 };
 
 //get posts , order by publishedAt TODO:add option to filter by category and asc or desc
@@ -75,7 +75,7 @@ export const getBanner = async () => {
     _id,title,background,color,items
   }[0]`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 30 } });
+  return client.fetch(groq, {}, { next: { revalidate: 120 } });
 };
 
 /* Sponsors */
@@ -87,7 +87,7 @@ export const getSponsors = async (sponsorCategory: TSponsorsType) => {
   }]{
     _id,items
   }`;
-  return client.fetch(groq, {}, { next: { revalidate: 30 } });
+  return client.fetch(groq, {}, { next: { revalidate: 120 } });
 };
 
 /* Newsletter */

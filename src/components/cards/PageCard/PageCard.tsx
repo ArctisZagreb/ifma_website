@@ -17,6 +17,7 @@ export const PageCard = ({ cardData }: { cardData: IPageCardData }) => {
           height={360}
           src={image}
           alt="decorative image"
+          loading="eager"
           className=" hover:scale-110 transition-universal h-full object-cover"
         />
       </Link>
