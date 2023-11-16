@@ -8,27 +8,30 @@ export default defineType({
   fields: [
     defineField({
       name: "title",
-      title: "Title",
+      title: "Title*",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug*",
       type: "slug",
       options: {
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "author",
-      title: "Author",
+      title: "Author*",
       type: "reference",
       to: { type: "author" },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "mainImage",
-      title: "Main image",
+      title: "Main image*",
       type: "image",
       options: {
         hotspot: true,
@@ -40,30 +43,36 @@ export default defineType({
           title: "Alternative Text",
         },
       ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "categories",
-      title: "Categories",
+      title: "Categories*",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "publishedAt",
-      title: "Published at",
+      title: "Published at*",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
+      initialValue: new Date().toISOString(),
     }),
     defineField({
       name: "previewText",
-      title: "Preview text",
+      title: "Preview text*",
       type: "string",
       components: {
         input: textAreaComponent,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "body",
-      title: "Body",
+      title: "Body*",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     }),
   ],
 

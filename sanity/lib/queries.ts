@@ -191,3 +191,11 @@ export const postContactMessage = async (
     };
   }
 };
+
+/* Newsletter Banner */
+
+export const getNewsletterBanner = async () => {
+  const groq = `*[_type=="newsletterBanner" && _id=="newsletter-banner"][0]`;
+
+  return client.fetch(groq, {}, { next: { revalidate: 120 } });
+};

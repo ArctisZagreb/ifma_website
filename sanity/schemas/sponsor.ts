@@ -7,13 +7,13 @@ export default defineType({
   fields: [
     defineField({
       name: "name",
-      title: "Name",
+      title: "Name*",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "logo",
-      title: "Logo",
+      title: "Logo*",
       type: "image",
       options: {
         hotspot: true,

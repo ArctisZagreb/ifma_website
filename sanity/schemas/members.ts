@@ -9,20 +9,23 @@ export default defineType({
       name: "name",
       title: "Ime*",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "surname",
       title: "Prezime*",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug*",
       type: "slug",
       options: {
         source: (doc, context) => `${doc.name}-${doc.surname}`,
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "image",

@@ -1,0 +1,14 @@
+Newsletter banner editable in db -done
+dodati required na sva polja koja su potrebna u schemama - done
+Studio dodati header sa logo i back to page
+Nav se sakrije kad se skrola dolje,
+Banner count animacija,
+mobile menu otvarajuca ladica za subnav itemse
+Metapodaci za sve stranice
+sitemaps
+optimizirati slike velicine
+aria-labels
+privacy-policy page
+
+Bonus:
+editable nav items koji imaju pod navigacije koji su clanci, cms sustav za o-nama i facility management
