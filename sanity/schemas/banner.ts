@@ -8,22 +8,24 @@ export default defineType({
   fields: [
     defineField({
       name: "title",
-      title: "Title",
+      title: "Title*",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "background",
-      title: "Background Image",
+      title: "Background Image*",
       type: "image",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "color",
-      title: "Text Color",
+      title: "Text Color*",
       type: "string",
       components: {
         input: colorInputComponent,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "items",

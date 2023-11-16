@@ -13,6 +13,7 @@ import members from "./schemas/members";
 import newsletterEmailList from "./schemas/newsletterEmailList";
 import contactMessage from "./schemas/contactMessage";
 import boardMembersShowcase from "./schemas/boardMembersShowcase";
+import newsletterBanner from "./schemas/newsletterBanner";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,5 +30,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     newsletterEmailList,
     contactMessage,
     boardMembersShowcase,
+    newsletterBanner,
   ],
 };

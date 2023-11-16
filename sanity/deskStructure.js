@@ -33,11 +33,26 @@ export const myStructure = (S) =>
             ])
         ),
       S.listItem()
-        .title("Banner")
+        .title("Banners")
         .child(
-          S.document()
-            .schemaType("banner")
-            .documentId("74aadb36-948b-48fa-89e7-933006464546")
+          S.list()
+            .title("Banners")
+            .items([
+              S.listItem()
+                .title("Numbers Banner")
+                .child(
+                  S.document()
+                    .schemaType("banner")
+                    .documentId("74aadb36-948b-48fa-89e7-933006464546")
+                ),
+              S.listItem()
+                .title("Newsletter Banner")
+                .child(
+                  S.document()
+                    .schemaType("newsletterBanner")
+                    .documentId("newsletter-banner")
+                ),
+            ])
         ),
       S.listItem()
         .title("Pokrovitelji")
@@ -185,46 +200,7 @@ export const myStructure = (S) =>
             "newsletterEmailList",
             "contactMessage",
             "boardMembersShowcase",
+            "newsletterBanner",
           ].includes(listItem.getId())
       ),
     ]);
-
-/* // ./deskStructure.js
-
-export const myStructure = (S) =>
-  S.list()
-    .title("Base")
-    .items([
-      S.listItem()
-        .title("Settings")
-        .child(
-          S.list()
-            // Sets a title for our new list
-            .title("Settings Documents")
-            // Add items to the array
-            // Each will pull one of our new singletons
-            .items([
-              S.listItem()
-                .title("Metadata")
-                .child(
-                  S.document()
-                    .schemaType("siteSettings")
-                    .documentId("siteSettings")
-                ),
-              S.listItem()
-                .title("Site Colors")
-                .child(S.document().schemaType("colors").documentId("colors")),
-              S.listItem()
-                .title("Main Navigation")
-                .child(
-                  S.document().schemaType("navigation").documentId("navigation")
-                ),
-            ])
-        ),
-      // We also need to remove the new singletons from the main list
-      ...S.documentTypeListItems().filter(
-        (listItem) =>
-          !["siteSettings", "colors", "navigation"].includes(listItem.getId())
-      ),
-    ]);
- */
