@@ -1,7 +1,9 @@
+"use client";
 import { IIfmaNumbersItemData } from "@/types/types";
 import React from "react";
 import { imageBuilder } from "../../../../../sanity/lib/image";
 import Image from "next/image";
+import CountUp from "react-countup";
 export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
   itemData,
 }) => {
@@ -14,9 +16,17 @@ export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
         height={55}
         alt="decorative icon"
       />
-      <p className="font-bold text-headingMMobile lg:text-headingM ">
-        {number}
-      </p>
+
+      <CountUp start={0} delay={1} end={number}>
+        {({ countUpRef }) => (
+          <div>
+            <span
+              ref={countUpRef}
+              className="font-bold text-headingMMobile lg:text-headingM "
+            />
+          </div>
+        )}
+      </CountUp>
       <span className="small-divider"></span>
       <p className=" text-center uppercase font-medium">{title}</p>
     </div>
