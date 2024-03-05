@@ -1,12 +1,17 @@
 "use client";
 import { IIfmaNumbersItemData } from "@/types/types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { imageBuilder } from "../../../../../sanity/lib/image";
 import Image from "next/image";
 import CountUp from "react-countup";
 export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
   itemData,
 }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  if (!isMounted) return;
   const { icon, title, number } = itemData;
   return (
     <div className="flex flex-col items-center   max-w-[230px] gap-[13px] max-lg:mb-[20px] ">
