@@ -22,7 +22,13 @@ export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
         alt="decorative icon"
       />
 
-      <CountUp start={0} delay={1} end={number}>
+      <CountUp
+        start={0}
+        delay={1}
+        end={number}
+        onEnd={() => console.log("Ended! 👏", number)}
+        onStart={() => console.log("Started! 💨", number)}
+      >
         {({ countUpRef }) => (
           <div>
             <span
