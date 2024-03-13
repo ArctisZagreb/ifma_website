@@ -3,16 +3,16 @@ import { IIfmaNumbersItemData } from "@/types/types";
 import React, { useEffect, useState } from "react";
 import { imageBuilder } from "../../../../../sanity/lib/image";
 import Image from "next/image";
-import CountUp from "react-countup";
+import { useCountUp } from "use-count-up";
 export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
   itemData,
 }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  if (!isMounted) return;
   const { icon, title, number } = itemData;
+  const countValue = useCountUp({
+    isCounting: true,
+    end: number,
+    duration: 5,
+  });
   return (
     <div className="flex flex-col items-center   max-w-[230px] gap-[13px] max-lg:mb-[20px] ">
       <Image
@@ -22,22 +22,11 @@ export const IfmaNumbersItem: React.FC<{ itemData: IIfmaNumbersItemData }> = ({
         alt="decorative icon"
       />
 
-      <CountUp
-        start={0}
-        delay={1}
-        end={number}
-        onEnd={() => console.log("Ended! 👏", number)}
-        onStart={() => console.log("Started! 💨", number)}
-      >
-        {({ countUpRef }) => (
-          <div>
-            <span
-              ref={countUpRef}
-              className="font-bold text-headingMMobile lg:text-headingM "
-            />
-          </div>
-        )}
-      </CountUp>
+      <div>
+        <span className="font-bold text-headingMMobile lg:text-headingM ">
+          {countValue && countValue.value}
+        </span>
+      </div>
       <span className="small-divider"></span>
       <p className=" text-center uppercase font-medium">{title}</p>
     </div>
