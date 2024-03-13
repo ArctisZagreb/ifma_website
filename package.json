@@ -25,6 +25,7 @@
     "react-lite-youtube-embed": "^2.3.52",
     "sanity": "^3.19.0",
     "styled-components": "^6.1.0",
+    "use-count-up": "^3.0.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
