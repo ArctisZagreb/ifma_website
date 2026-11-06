@@ -7,7 +7,7 @@ import React, {
   FormEvent,
   FormEventHandler,
 } from "react";
-import { postContactMessage } from "../../../../sanity/lib/queries";
+import { postContactMessage } from "../../../../sanity/lib/actions";
 
 export const ContactForm = ({ formType }: { formType: TFormTypes }) => {
   const [name, setName] = useState("");

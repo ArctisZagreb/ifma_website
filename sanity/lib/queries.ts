@@ -1,13 +1,21 @@
 // ./nextjs-app/sanity/lib/queries.ts
-import * as EmailValidator from "email-validator";
 import { groq } from "next-sanity";
-import { client, writeClient } from "./client";
+import { client } from "./client";
 import { SanityDocument } from "sanity";
-import {
-  ISubmitContactFormData,
-  TFormTypes,
-  TSponsorsType,
-} from "@/types/types";
+import { TSponsorsType } from "@/types/types";
+
+/*
+ * Cache strategija (smanjuje Vercel ISR / Data Cache writes):
+ * - Svaki fetch ima tag = Sanity _type dokumenta koji koristi.
+ * - Sanity webhook -> /api/revalidate poziva revalidateTag(_type) cim se sadrzaj promijeni.
+ * - Vremenska revalidacija je samo sigurnosna mreza (24h), umjesto prijasnjih 120s
+ *   koji su (preko Footera/Newslettera) tjerali SVAKU stranicu na regeneraciju svake 2 min.
+ */
+export const REVALIDATE_FALLBACK = 60 * 60 * 24;
+
+const cacheOptions = (tags: string[]) => ({
+  next: { revalidate: REVALIDATE_FALLBACK, tags },
+});
 
 // Get all posts
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
@@ -28,7 +36,7 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
 export const getCategories = async () => {
   const groq = `*[_type=='category']{slug,title}`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 600 } });
+  return client.fetch(groq, {}, cacheOptions(["category"]));
 };
 
 //get posts , order by publishedAt TODO:add option to filter by category and asc or desc
@@ -59,15 +67,7 @@ export const getPosts = async (
 
   //in groq options are asc or desc
   groq += ` | order(publishedAt desc)`;
-  return client.fetch(
-    groq,
-    {},
-    {
-      next: {
-        revalidate: 120,
-      },
-    }
-  );
+  return client.fetch(groq, {}, cacheOptions(["post", "category", "author"]));
 };
 
 export const getBanner = async () => {
@@ -75,7 +75,7 @@ export const getBanner = async () => {
     _id,title,background,color,items
   }[0]`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 120 } });
+  return client.fetch(groq, {}, cacheOptions(["banner"]));
 };
 
 /* Sponsors */
@@ -87,57 +87,7 @@ export const getSponsors = async (sponsorCategory: TSponsorsType) => {
   }]{
     _id,items
   }`;
-  return client.fetch(groq, {}, { next: { revalidate: 120 } });
-};
-
-/* Newsletter */
-
-export const postNewsletterEmail = async (
-  email: string
-): Promise<{ success: boolean; msg: string }> => {
-  //email validation
-  const validEmail = EmailValidator.validate(email);
-  if (!validEmail) {
-    return {
-      success: false,
-      msg: "Email not valid",
-    };
-  }
-  const groq = `*[_type=='newsletterEmailList' && emailAddress== '${email}']`;
-  //check if email alredy exist in db
-  try {
-    const existingList = await client.fetch(groq, {});
-
-    if (existingList.length !== 0) {
-      return {
-        success: false,
-        msg: "Email alredy existing in newsletter list",
-      };
-    }
-  } catch (error) {
-    return {
-      success: false,
-      msg: "Something went wrong",
-    };
-  }
-
-  //posting to db
-  try {
-    await writeClient.create({
-      _type: "newsletterEmailList",
-      emailAddress: email,
-    });
-    return {
-      success: true,
-      msg: "Email added 🙂",
-    };
-  } catch (error) {
-    console.error(error);
-    return {
-      success: false,
-      msg: "Something went wrong,please try again.",
-    };
-  }
+  return client.fetch(groq, {}, cacheOptions(["sponsors", "sponsor"]));
 };
 
 /* Members */
@@ -147,49 +97,11 @@ export const getBoardMembersShowcase = async () => {
     showcaseList[]->{name,surname,slug,image,role->{title},_id}
   }[0]`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 120 } });
-};
-
-/* Contact Form */
-
-export const postContactMessage = async (
-  submitFormData: ISubmitContactFormData,
-  formType: TFormTypes
-): Promise<{ success: boolean; msg: string }> => {
-  /* Validation of data */
-  const { email, name, message } = submitFormData;
-  const validEmail = EmailValidator.validate(email);
-  if (!validEmail) {
-    return {
-      success: false,
-      msg: "Email nije validan",
-    };
-  }
-  if (!name || !message) {
-    return {
-      success: false,
-      msg: "Nisu sva polja popunjena",
-    };
-  }
-  /* submiting data */
-  try {
-    await writeClient.create({
-      _type: "contactMessage",
-      email,
-      sender: name,
-      message: message,
-      formType,
-    });
-    return {
-      success: true,
-      msg: "Poruka poslana,kontaktirat cemo vas prvom prilikom 🙂",
-    };
-  } catch (error) {
-    return {
-      success: false,
-      msg: "Došlo je do greške.Pokušajte ponovno ili nam pošaljite izravnu e-poštu. Hvala vam.",
-    };
-  }
+  return client.fetch(
+    groq,
+    {},
+    cacheOptions(["boardMembersShowcase", "members", "memberRole"])
+  );
 };
 
 /* Newsletter Banner */
@@ -197,5 +109,5 @@ export const postContactMessage = async (
 export const getNewsletterBanner = async () => {
   const groq = `*[_type=="newsletterBanner" && _id=="newsletter-banner"][0]`;
 
-  return client.fetch(groq, {}, { next: { revalidate: 120 } });
+  return client.fetch(groq, {}, cacheOptions(["newsletterBanner"]));
 };
