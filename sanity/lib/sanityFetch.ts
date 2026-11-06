@@ -3,6 +3,7 @@ import "server-only";
 import type { QueryParams } from "@sanity/client";
 import { draftMode } from "next/headers";
 import { client } from "./client";
+import { REVALIDATE_FALLBACK } from "./queries";
 
 const DEFAULT_PARAMS = {} as QueryParams;
 const DEFAULT_TAGS = [] as string[];
@@ -36,7 +37,9 @@ export async function sanityFetch<QueryResponse>({
         perspective: "previewDrafts",
       }),
       next: {
-        ...(isDraftMode && { revalidate: 120 }),
+        // bez webhooka bi post ostao zauvijek u cacheu; 24h je sigurnosna mreza,
+        // a /api/revalidate (Sanity webhook) osvjezava odmah preko tagova
+        revalidate: isDraftMode ? 120 : REVALIDATE_FALLBACK,
         tags,
       },
     });

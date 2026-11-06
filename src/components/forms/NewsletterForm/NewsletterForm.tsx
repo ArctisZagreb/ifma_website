@@ -1,6 +1,6 @@
 "use client";
 import React, { FormEventHandler, useState } from "react";
-import { postNewsletterEmail } from "../../../../sanity/lib/queries";
+import { postNewsletterEmail } from "../../../../sanity/lib/actions";
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");

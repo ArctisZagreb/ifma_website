@@ -1,13 +1,11 @@
 // ./nextjs-app/app/_components/Post.tsx
-
-"use client";
+// Server component: PostSidebarLinks je async server komponenta i ne smije biti unutar "use client".
 
 import Image from "next/image";
 // @ts-ignore
 import imageUrlBuilder from "@sanity/image-url";
-import { SanityDocument } from "@sanity/client";
-import { PortableText } from "@portabletext/react";
 import { client } from "@/../sanity/lib/client";
+import { SanityDocument } from "@sanity/client";
 import PostHeader from "./PostHeader";
 import PostBody from "./PostBody";
 import PostSidebarLinks from "./PostSidebarLinks";

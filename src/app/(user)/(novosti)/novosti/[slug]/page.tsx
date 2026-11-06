@@ -1,4 +1,5 @@
 import { SanityDocument } from "next-sanity";
+import { notFound } from "next/navigation";
 import { client } from "../../../../../../sanity/lib/client";
 import {
   postPathsQuery,
@@ -16,7 +17,17 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: any }) {
-  const post = await sanityFetch<SanityDocument>({ query: postQuery, params });
+  const post = await sanityFetch<SanityDocument>({
+    query: postQuery,
+    params: { slug: params.slug },
+    tags: ["post", "category"],
+  });
 
-  return <main>{post && <Post post={post} />}</main>;
+  if (!post) notFound();
+
+  return (
+    <main>
+      <Post post={post} />
+    </main>
+  );
 }
